@@ -1,7 +1,7 @@
-#PHP/Laravel/Vue - Full Stack Web Developer Test
+# PHP/Laravel/Vue - Full Stack Web Developer Test
 ***Implement a service providing currency rates***
 
-##Installation guide:
+## Installation guide:
 ```bash
 composer install
 cp .env.example .env
@@ -11,25 +11,25 @@ npm install
 npm run prod [dev/watch]
 ```
 
-##Commands:
+## Commands:
 ```bash
 php artisan create:user # Create a User
 php artisan create:user-token # Create User API Token
 php artisan currencies:fetch # Get currencies from Bank-API and save
 ```
 
-##API endpoints:
-#####[POST] /api/login
+## API endpoints:
+##### [POST] /api/login
     username
     password
     
-#####[GET, Bearer Token required] /api/currencies
+##### [GET, Bearer Token required] /api/currencies
     date_from
     date_to
     page
     per_page
 
-#####[GET, Bearer Token required] /api/currencies/{currencyCode}
+##### [GET, Bearer Token required] /api/currencies/{currencyCode}
     date_from
     date_to
     page
