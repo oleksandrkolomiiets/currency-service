@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurrencyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::get('dashboard', [CurrencyController::class, 'dashboard'])
+        ->name('dashboard');
+
+    Route::get('history/{currency}', [CurrencyController::class, 'history'])
+        ->name('history');
 });

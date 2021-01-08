@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\UserApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('login', [UserApiController::class, 'login'])
+    ->name('api.login');
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('currencies', [CurrencyController::class, 'index'])
+        ->name('currencies.index');
 });
